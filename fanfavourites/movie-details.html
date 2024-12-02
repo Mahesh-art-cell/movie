@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Details</title>
+  </head>
+  <body>
+    <h1>Movie Details</h1>
+    <div id="movie-details-container"></div>
+
+    <script>
+      let detailsContainer = document.getElementById("movie-details-container");
+
+      const url =
+        "https://imdb188.p.rapidapi.com/api/v1/getFanFavorites?country=US";
+      const options = {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key":
+            "37f175010emsh42db384d0db98c8p1bd910jsne5a261e2ee69",
+          "x-rapidapi-host": "imdb188.p.rapidapi.com",
+        },
+      };
+
+      async function mani(){
+         let data=await fetch(url,options)
+         let result=await data.json()
+         let res=result.data.list
+         console.log(result)
+
+         res.forEach(x => {
+            let card=document.createElement("div")
+            card.innerHTML=`<img>`
+         });
+      }
+
+      mani()
+    </script>
+  </body>
+</html>
